@@ -587,31 +587,6 @@ export const removeAllUserCoverImages = async (req, res, next) => {
     }
 }
 
-// export const deleteUser = async (req, res, next) => {
-//     try {
-//         const { id } = req.params
-//         const user = await userModel.findByIdAndDelete(id)
-
-//         if (!user) {
-//             return res.status(404).json({ message: "User Not Found" })
-//         }
-//         cloudinary.v2.api.delete_all_resources({
-//             type: "private",
-//             prefix: `users/avatarImages/${user.avatar.publicId}`
-//         })
-//         user.coverImages.forEach(image => {
-//             cloudinary.v2.api.delete_all_resources({
-//                 type: "private",
-//                 prefix: `users/coverImages/${image.publicId}`
-//             })
-//         })
-//         return res.status(200).json({ message: "User Deleted Successfully" })
-//     } catch (err) {
-//         console.error("Delete User error:", err.message);
-//         return res.status(500).json({ message: "Internal server error." });
-//     }
-// }
-
 export const deleteUser = async (req, res, next) => {
     try {
         const { id } = req.params;
