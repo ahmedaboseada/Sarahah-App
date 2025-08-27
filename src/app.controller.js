@@ -20,7 +20,10 @@ export const bootstrap = () => {
     app.use(express.urlencoded({ extended: true }));
 
     app.use(cors());
+    // app.use(morgan("combined"))
+    // app.use(morgan("common"))
     app.use(morgan("dev"))
+
     app.use(helmet({
         crossOriginResourcePolicy: false,
         crossOriginOpenerPolicy: false,
@@ -40,10 +43,10 @@ export const bootstrap = () => {
     }))
 
     const limiter = rateLimit({
-        windowMs: 5 * 60 * 1000, // 5 mins
-        limit: 15, // 15 requests in 5 mins
+        windowMs: 1 * 60 * 1000, // 1 min
+        limit: 3, // 15 requests in 5 mins
         message: {
-            error: "Too many requests"
+            error: "Too many requests2"
         },
         statusCode: 400,
         handler: (req, res, next) => {

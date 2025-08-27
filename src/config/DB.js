@@ -4,7 +4,7 @@ import chalk from "chalk";
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI_ONLINE)
-        console.log(chalk.bgGray(`Connected to MongoDB`))
+        console.log(chalk.bgRgb(0, 255, 0)(`Connected to MongoDB`))
     } catch (error) {
         console.log(error)
     }

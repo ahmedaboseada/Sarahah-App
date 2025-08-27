@@ -1,8 +1,4 @@
-
-
 import messageModel from "../../models/message.model.js"
-// sendMessage
-// getAllMessages - authed
 
 export const sendMessage = async (req, res) => {
     try {
